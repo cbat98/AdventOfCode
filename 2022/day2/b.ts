@@ -1,5 +1,3 @@
-const fs = require("fs")
-
 const CHEATSHEET = {
     // A-ROCK - B-PAPER - C-SCISSORS
     // X-LOSE - Y-DRAW  - Z-WIN
@@ -15,11 +13,11 @@ const CHEATSHEET = {
     "C Z": 7,    
 }
 
-fs.readFile("./day2/input.txt", "utf8", (err:string, input:string) => {
-    let lines = input.split("\n")
-    lines.pop()
+const input = await Deno.readTextFile("./input.txt")
 
-    const scores = lines.map(l => CHEATSHEET[l])
+let lines = input.split("\n")
+lines.pop()
 
-    console.log(scores.reduce((tot, f) => tot += f))
-})
+const scores = lines.map(l => CHEATSHEET[l])
+
+console.log("total", scores.reduce((tot, f) => tot += f))
