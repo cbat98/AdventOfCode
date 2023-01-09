@@ -21,6 +21,5 @@ fs.readFile("./day2/input.txt", "utf8", (err:string, input:string) => {
 
     const scores = lines.map(l => CHEATSHEET[l])
 
-    console.log(scores)
     console.log(scores.reduce((tot, f) => tot += f))
 })

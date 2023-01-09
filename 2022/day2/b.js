@@ -16,6 +16,5 @@ fs.readFile("./day2/input.txt", "utf8", function (err, input) {
     var lines = input.split("\n");
     lines.pop();
     var scores = lines.map(function (l) { return CHEATSHEET[l]; });
-    console.log(scores);
     console.log(scores.reduce(function (tot, f) { return tot += f; }));
 });
