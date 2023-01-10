@@ -45,10 +45,8 @@ const stack = formatted[0]
 const commands = formatted[1]
 
 for (let i = 0; i < commands.length; i++) {
-    for (let j = 0; j < commands[i][0]; j++) {
-        let crate = stack[commands[i][1] - 1].shift()
-        stack[commands[i][2] - 1].unshift(crate)
-    }
+    let crates = stack[commands[i][1] - 1].splice(0, commands[i][0])
+    stack[commands[i][2] - 1].unshift(...crates)
 }
 
 console.log("top: ", stack.map(s => s[0]).join(""))
